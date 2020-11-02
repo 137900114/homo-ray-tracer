@@ -1,6 +1,7 @@
 #include <iostream>
 #include "stb_image.h"
 #include "Vector.h"
+#include "shape/shape.h"
 
 int main(){
     char image[256][256][3];
@@ -15,9 +16,8 @@ int main(){
 
     stbi_flip_vertically_on_write(true);
     stbi_write_bmp("../output/test_stb.bmp",256,256,3,image);
+ 
 
-
-    Game::Vector3 v1 = Game::Vector3(1,1,4),v2 = Game::Vector3(5,1,4);
-    std::cout << Game::dot(v1,v2);
-    
+    Math::Vector3 v1 = Math::Vector3(1,1,4),v2 = Math::Vector3(5,1,4);
+    std::cout << Math::dot(v1,v2);
 }

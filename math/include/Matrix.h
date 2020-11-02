@@ -4,7 +4,7 @@
 #include <string.h>
 #include "Vector.h"
 
-namespace Game {
+namespace Math {
 	struct Mat4x4;
 	struct Mat3x3;
 

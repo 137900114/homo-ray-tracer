@@ -6,7 +6,7 @@ struct _PackedMat4x4 {
 
 };
 
-inline _PackedMat4x4 _load_mat(const Game::Mat4x4& mat) {
+inline _PackedMat4x4 _load_mat(const Math::Mat4x4& mat) {
 	_PackedMat4x4 target;
 	target.m[0] = _mm_load_ps(mat.a[0]);
 	target.m[1] = _mm_load_ps(mat.a[1]);
@@ -16,7 +16,7 @@ inline _PackedMat4x4 _load_mat(const Game::Mat4x4& mat) {
 	return target;
 }
 
-inline _PackedMat4x4 _load_mat(const Game::Mat3x3& mat) {
+inline _PackedMat4x4 _load_mat(const Math::Mat3x3& mat) {
 	_PackedMat4x4 target;
 	float buffer0[] = {0,0,0,0};
 	float buffer1[] = {0,0,0,1};
@@ -31,8 +31,8 @@ inline _PackedMat4x4 _load_mat(const Game::Mat3x3& mat) {
 	return target;
 }
 
-inline Game::Mat4x4 _store_mat4(_PackedMat4x4 mat) {
-	Game::Mat4x4 target;
+inline Math::Mat4x4 _store_mat4(_PackedMat4x4 mat) {
+	Math::Mat4x4 target;
 	_mm_storeu_ps(target.a[0], mat.m[0]);
 	_mm_storeu_ps(target.a[1], mat.m[1]);
 	_mm_storeu_ps(target.a[2], mat.m[2]);
@@ -41,8 +41,8 @@ inline Game::Mat4x4 _store_mat4(_PackedMat4x4 mat) {
 	return target;
 }
 
-inline Game::Mat3x3 _store_mat3(_PackedMat4x4 mat) {
-	Game::Mat3x3 target;
+inline Math::Mat3x3 _store_mat3(_PackedMat4x4 mat) {
+	Math::Mat3x3 target;
 	float buffer[4];
 	_mm_storeu_ps(buffer,mat.m[0]);
 	memcpy(target.a[0], buffer, sizeof(float) * 3);
@@ -377,7 +377,7 @@ __m128 _Multi4x4(_PackedMat4x4& mat,__m128 vec) {
 	return _mm_shuffle_ps(v0, v2, _MM_SHUFFLE(3, 2, 1, 0));
 }
 
-namespace Game {
+namespace Math {
 	Mat2x2 Mat2x2::T() const {
 		return Mat2x2(a[0][0],a[0][1],a[1][0],a[1][1]);
 	}

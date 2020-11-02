@@ -41,7 +41,7 @@ inline size_t round_up(size_t num,size_t step) {
 	return (num + step - 1) & ~(step - 1);
 }
 
-namespace Game {
+namespace Math {
 	//we can replace this function with better algorithm
 	inline float pow(float num,float index) {
 		return ::pow(num, index);

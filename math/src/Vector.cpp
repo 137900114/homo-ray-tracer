@@ -23,7 +23,7 @@ inline __m128 cross(__m128 lhs, __m128 rhs) {
 	return _mm_sub_ps(temp1, temp2);
 }
 
-namespace Game {
+namespace Math {
 
 	Vector3 cross(const Vector3& lhs, const Vector3& rhs) {
 		return Vector3(

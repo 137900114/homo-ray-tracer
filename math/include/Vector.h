@@ -4,7 +4,7 @@
 #include <string.h>
 #include <cmath>
 
-namespace Game {
+namespace Math {
     //Don't call this function outside.
     template<typename T>
     inline __m128 _pack_vector_to_m128(T t) {
