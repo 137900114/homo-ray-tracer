@@ -1,4 +1,5 @@
 #include "camera.h"
+#pragma once
 #include "film.h"
 #include "sampler.h"
 #include "scene.h"

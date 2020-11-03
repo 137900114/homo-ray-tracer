@@ -1,3 +1,5 @@
+#pragma once
+
 #include "transform.h"
 #include "ray.h"
 #include "bbox.h"
@@ -6,7 +8,7 @@
 namespace HomoRT{
     class Shape{
     public:
-        virtual bool Intersect(Ray& r,Intersect& inter);
+        virtual bool Intersect(Ray& r,Intersection& inter) = 0;
 
         inline Math::Mat4x4 GetObjectToWorld() {return transform.GetTrans();}
         inline Math::Mat4x4 GetWorldToObject() {return transform.GetInvTrans();}
@@ -14,9 +16,8 @@ namespace HomoRT{
         inline Math::Vector4 GetWorldToObject(const Math::Vector4& vec) {return transform.GetInvTrans(vec);}
 
         Shape(Transform trans):transform(trans){}
-        inline BBox GetBoundBox() {return bound_box;}
+        virtual BBox GetBoundBox()  = 0;
     protected:
         Transform transform;
-        BBox bound_box;
     }; 
 }

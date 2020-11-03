@@ -1,6 +1,8 @@
+#pragma once
 #include "Vector.h"
 #include "MathFunctions.h"
-#include <limits.h>
+#include <limits>
+#include "ray.h"
 
 namespace HomoRT{
     struct BBox{
@@ -21,5 +23,25 @@ namespace HomoRT{
             this->max = Math::Vector3(Math::fmax(max[0],min[0]),Math::fmax(max[1],min[1]),Math::fmax(max[2],min[2]));
             this->min = min;
         }
+
+        bool Intersect(Ray& r);
+        BBox merge(BBox& other);
+    };
+
+    struct BSphere{
+        Math::Vector3 pos;
+        float radius;
+
+        BSphere(){
+            radius = std::numeric_limits<float>::max();
+            pos = Math::Vector3();
+        }
+
+        BSphere(Math::Vector3 pos,float radius){
+            this->pos = pos;
+            this->radius = radius;
+        }
+
+        
     };
 }

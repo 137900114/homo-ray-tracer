@@ -1,3 +1,4 @@
+#pragma once
 #include "Vector.h"
 
 namespace HomoRT{
@@ -6,7 +7,7 @@ namespace HomoRT{
         float mint,maxt;
     };
 
-    struct Intersect {
+    struct Intersection {
         Ray* r;
         float t;
         Math::Vector3 normal;

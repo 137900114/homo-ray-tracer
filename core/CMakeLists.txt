@@ -2,6 +2,7 @@ project(homo_core)
 
 set(SHAPE_SOURCES
     src/shape/shape.cpp
+    src/shape/sphere.cpp
 )
 
 set(SOURCES 
