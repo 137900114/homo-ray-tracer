@@ -25,7 +25,7 @@ namespace HomoRT{
         }
 
         bool Intersect(Ray& r);
-        BBox merge(BBox& other);
+        BBox Merge(BBox& other);
     };
 
     struct BSphere{
@@ -42,6 +42,7 @@ namespace HomoRT{
             this->radius = radius;
         }
 
-        
+        BSphere Merge(BSphere& other);
+        bool Intersect(Ray& r);        
     };
 }

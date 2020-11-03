@@ -1,9 +1,16 @@
 #pragma once
 #include "Vector.h"
 
-struct CameraSample{
-    Math::Vector2 lenUV;
-    Math::Vector2 pixelUV;
-};
+namespace HomoRT{
 
+    struct CameraSample{
+        Math::Vector2 lenUV;
+        Math::Vector2 pixelUV;
+    };
+
+
+    class Sampler{
+
+    };
+}
 

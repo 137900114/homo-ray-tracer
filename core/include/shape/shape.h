@@ -17,6 +17,7 @@ namespace HomoRT{
 
         Shape(Transform trans):transform(trans){}
         virtual BBox GetBoundBox()  = 0;
+        virtual BSphere GetBoundSphere() = 0;
     protected:
         Transform transform;
     }; 

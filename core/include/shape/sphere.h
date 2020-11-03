@@ -10,6 +10,7 @@ namespace HomoRT{
         }
 
         virtual BBox GetBoundBox() override;
+        virtual BSphere GetBoundSphere() override;
         virtual bool Intersect(Ray& ray,Intersection& inter) override;
     private:
         float radius;
