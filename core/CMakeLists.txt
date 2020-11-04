@@ -11,6 +11,7 @@ set(SOURCES
     src/ray.cpp
     src/scene.cpp
     src/film.cpp
+    src/raycaster.cpp
     ${SHAPE_SOURCES}
 )
 

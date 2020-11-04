@@ -7,7 +7,7 @@
 namespace HomoRT{
     class Scene{
     public:
-        virtual void Intersect(Ray& r,Intersection& inter) = 0;
+        virtual bool Intersect(Ray& r,Intersection& inter) = 0;
     };
 
     class SequenceScene : public Scene{
@@ -15,7 +15,7 @@ namespace HomoRT{
         void InsertShape(Shape* shape){
             shapes.push_back(shape);
         }
-        virtual void Intersect(Ray& r,Intersection& iter) = 0;
+        virtual bool Intersect(Ray& r,Intersection& iter);
     private:
         std::vector<Shape*> shapes;
     };

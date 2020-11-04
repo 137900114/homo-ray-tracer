@@ -1,6 +1,6 @@
 #include "camera.h"
 #include "MathFunctions.h"
-
+#include <iostream>
 using namespace HomoRT;
 
 
@@ -21,7 +21,6 @@ PerspectiveCamera::PerspectiveCamera(uint32_t filmwidth,uint32_t filmheight,cons
 
 bool PerspectiveCamera::GenerateRay(uint32_t _x,uint32_t _y,Ray& r){
     float x = static_cast<float>(_x),y = static_cast<float>(_y);
-
     if(x > filmwidth || y > filmheight)
         return false;
 
@@ -32,8 +31,9 @@ bool PerspectiveCamera::GenerateRay(uint32_t _x,uint32_t _y,Ray& r){
     Math::Vector3 camera_space_dir = Math::Vector3( (x / filmwidth * 2. - 1.) * fov * aspect,
         (y / filmheight * 2. - 1.) * fov, 1.);
 
+    
     r.d = Math::Vector3(Math::mul(transform.GetTrans(),Math::Vector4(camera_space_dir,0.))); 
     r.d = Math::normalize(r.d);
-
+    
     return true;
 }

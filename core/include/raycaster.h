@@ -13,6 +13,7 @@ namespace HomoRT{
             this->film = film;
             this->scene = scene;
             this->sampler = sampler;
+            this->camera = camera;
 
             if(sampler == nullptr){
                 sample_x = 1,sample_y = 1;

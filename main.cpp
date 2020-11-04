@@ -1,23 +1,30 @@
 #include <iostream>
-#include "stb_image.h"
+#include "film.h"
 #include "Vector.h"
 #include "shape/shape.h"
+#include "camera.h"
+#include "scene.h"
+#include "shape/sphere.h"
+#include "raycaster.h"
+
+using namespace HomoRT;
 
 int main(){
-    char image[256][256][3];
+    Film film(256,256);
+    PerspectiveCamera camera(256,256,Transform(Math::Vector3(),Math::Vector3(),Math::Vector3(1.,1.,1.)),
+        PI / 4.,1e-1,1e4);
+    SequenceScene scene;
 
-    for(int i = 0;i != 256;i++){
-        for(int j = 0;j != 256;j++){
-            image[i][j][0] = i;
-            image[i][j][1] = j;
-            image[i][j][2] = 255;
-        }
+    Sphere sphere(3.,Transform(Math::Vector3(0.,0.,100.),Math::Vector3(),Math::Vector3(1.,1.,1.)));
+    scene.InsertShape(&sphere);
+    
+    RayCaster rc(&film,&camera,&scene);
+
+    rc.CastRay();
+
+    if(!film.Save("../output/test_film.bmp",true)){
+        printf("the film saved the film data successfully\n");
+    }else {
+        printf("fail to save the film data\n");
     }
-
-    stbi_flip_vertically_on_write(true);
-    stbi_write_bmp("../output/test_stb.bmp",256,256,3,image);
- 
-
-    Math::Vector3 v1 = Math::Vector3(1,1,4),v2 = Math::Vector3(5,1,4);
-    std::cout << Math::dot(v1,v2);
 }

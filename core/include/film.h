@@ -22,8 +22,8 @@ namespace HomoRT {
             :width(width),height(height){
             data = new char[width * height * 3];
         }
-        virtual ~Film() {delete data;}
-        void Save(const char* filename,FILM_WRITE_FILE_TYPE type = BMP);
+        virtual ~Film() {delete[] data;}
+        bool Save(const char* filename,bool flip_vertically = false,FILM_WRITE_FILE_TYPE type = BMP);
 
         void Set(uint32_t x,uint32_t y,Math::Vector3 color,FilmBlendParameter blend = FilmBlendParameter(1.,0.));
         Math::Vector3 Get(uint32_t x,uint32_t y);
