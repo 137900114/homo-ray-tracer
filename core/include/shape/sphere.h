@@ -5,7 +5,8 @@
 namespace HomoRT{
     class Sphere : public Shape{
     public:
-        Sphere(float radius,Transform trans):Shape(trans){
+        Sphere(float radius,Math::Vector3 position,Math::Vector3 rotation = Math::Vector3(0.,0.,0.)):
+            Shape(Transform(position,rotation,Math::Vector3(radius,radius,radius))){
             this->radius = radius;
         }
 

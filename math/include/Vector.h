@@ -3,6 +3,7 @@
 #include <xmmintrin.h>
 #include <string.h>
 #include <cmath>
+#include <iostream>
 
 namespace Math {
     //Don't call this function outside.
@@ -284,4 +285,9 @@ namespace Math {
     inline Vec castVec(Vec2 source) {
         return Vec(_pack_vector_to_m128(source));
     }
+
+
+    std::ostream& operator<<(std::ostream& out,const Vector2& vec);
+    std::ostream& operator<<(std::ostream& out,const Vector3& vec);
+    std::ostream& operator<<(std::ostream& out,const Vector4& vec);
 }

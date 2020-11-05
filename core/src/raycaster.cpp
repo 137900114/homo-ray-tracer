@@ -14,7 +14,7 @@ void RayCaster::CastRay(){
             if(camera->GenerateRay(x,y,r)){
                 if(scene->Intersect(r,inter)){
                     //currently we assume there is a default light whose direction is (-1,-1,0.)
-                    color = dot(inter.normal,Math::normalize(Math::Vector3(-1,-1,0.)));
+                    color = dot(inter.normal,Math::normalize(Math::Vector3(0.,0.,-1.)));
                 }
             }
             film->Set(x,y,color);

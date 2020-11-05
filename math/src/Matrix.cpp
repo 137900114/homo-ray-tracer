@@ -422,7 +422,6 @@ namespace Math {
 
 	Mat4x4 Mat4x4::R() const {
 		_PackedMat4x4 mat = _load_mat(*this);
-
 		return _store_mat4(_InverseMat4x4(mat));
 	}
 
@@ -664,5 +663,28 @@ namespace Math {
 		memcpy(a, mat.a, sizeof(float) * 3);
 		memcpy(a + 3, mat.a + 4, sizeof(float) * 3);
 		memcpy(a + 6, mat.a + 8, sizeof(float) * 3);
+	}
+
+
+	std::ostream& operator<<(std::ostream& out,const Mat2x2& mat){
+		out << mat.a[0][0] << "," << mat.a[0][1] << ",\n" << mat.a[1][0] << "," << mat.a[1][1] << "\n";
+		return out;
+	}
+
+	std::ostream& operator<<(std::ostream& out,const Mat3x3& mat){
+		
+		out << mat.a[0][0] << "," << mat.a[0][1] << "," << mat.a[0][2] << ",\n"
+		 << mat.a[1][0] << "," << mat.a[1][1] << "," << mat.a[1][2] << ",\n" 
+		 << mat.a[2][0] << "," << mat.a[2][1] << "," << mat.a[2][2] << "\n";
+		 return out;
+	}
+
+	std::ostream& operator<<(std::ostream& out,const Mat4x4& mat){
+		
+		out << mat.a[0][0] << "," << mat.a[0][1] << "," << mat.a[0][2] << "," << mat.a[0][3] << ",\n"
+		 << mat.a[1][0] << "," << mat.a[1][1] << "," << mat.a[1][2]  << "," << mat.a[1][3] << ",\n" 
+		 << mat.a[2][0] << "," << mat.a[2][1] << "," << mat.a[2][2]  << "," << mat.a[2][3] << ",\n"
+		 << mat.a[3][0] << "," << mat.a[3][1] << "," << mat.a[3][2] << "," << mat.a[3][3] << "\n";
+		 return out;
 	}
 }

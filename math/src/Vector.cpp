@@ -52,7 +52,20 @@ namespace Math {
 
 	Vector2::Vector2(__m128 m) {
 		float buffer[4];
-		_mm_storeu_ps(buffer, m);
+		_mm_storeu_ps(buffer, m); 
 		memcpy(raw, buffer, sizeof(float) * 2);
+	}
+
+	std::ostream& operator<<(std::ostream& out,Vector2& vec){
+		out <<"("<< vec[0] << "," << vec[1] << ")";
+		return out;
+	}
+    std::ostream& operator<<(std::ostream& out,const Vector3& vec){
+		out << "(" << vec[0] << "," << vec[1] << "," << vec[2] << ")";
+		return out;
+	}
+    std::ostream& operator<<(std::ostream& out,Vector4& vec){
+		out << "(" << vec[0] << "," << vec[1] << "," << vec[2] << "," << vec[3] << ")";
+		return out;
 	}
 }

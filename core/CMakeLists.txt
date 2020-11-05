@@ -3,6 +3,8 @@ project(homo_core)
 set(SHAPE_SOURCES
     src/shape/shape.cpp
     src/shape/sphere.cpp
+    src/shape/triangle_list.cpp
+    src/shape/box.cpp
 )
 
 set(SOURCES 
@@ -12,6 +14,7 @@ set(SOURCES
     src/scene.cpp
     src/film.cpp
     src/raycaster.cpp
+    src/transform.cpp
     ${SHAPE_SOURCES}
 )
 

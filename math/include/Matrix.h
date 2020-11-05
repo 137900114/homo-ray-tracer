@@ -3,6 +3,7 @@
 #include <xmmintrin.h>
 #include <string.h>
 #include "Vector.h"
+#include <iostream>
 
 namespace Math {
 	struct Mat4x4;
@@ -143,4 +144,8 @@ namespace Math {
 	Vector4 mul(const Mat4x4& lhs,Vector4 vec);
 	Vector3 mul(const Mat3x3& lhs,Vector3 rhs);
 	Vector2 mul(const Mat2x2& lhs,Vector2 rhs);
+
+	std::ostream& operator<<(std::ostream& out,const Mat2x2& mat);
+	std::ostream& operator<<(std::ostream& out,const Mat3x3& mat);
+	std::ostream& operator<<(std::ostream& out,const Mat4x4& mat);
 }
